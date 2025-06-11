@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Hisaab</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f5;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .title {
+      font-size: 20px;
+      margin: 30px 0 20px;
+    }
+
+    .highlight {
+      color: #007bff;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      resize: none;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #e0e0e0;
+      border: none;
+      font-size: 14px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Khaatabook</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/create">Create New Hisaab</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="title">You're editing hisaab of <span class="highlight"><%= filename.split(".")[0]%></span> date</h2>
+    <form action="/update/<%=filename%>" method="post">
+      <textarea name="content"><%=data%></textarea>
+      <input type="submit" value="Update Hisaab" />
+    </form>
+  </div>
+</body>
+</html>

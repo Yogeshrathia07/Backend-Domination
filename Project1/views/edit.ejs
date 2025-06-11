@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Editing File: <%= filename %></h1>
+
+    <form action="/edit/<%= filename %>" method="POST">
+        <textarea name="content"><%= data %></textarea>
+        <br><br>
+        <button type="submit">Save Changes</button>
+    </form>
+    <br>
+    <a href="/">Back to File List</a>
+</body>
+</html>
