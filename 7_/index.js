@@ -42,3 +42,19 @@ app.get('/users',async (req,res)=>{
 app.listen(3000,()=>{
     console.log('Server is running on http://localhost:3000');
 });
+
+app.get('/project-example', async (req, res) => {
+  const result = await userModel.aggregate([
+    {
+      $project: {
+        _id: 0,               // exclude _id
+        userName: "$name",    // rename 'name' to 'userName'
+        age: 1,               // include 'age'
+        location: "$city",    // rename 'city' to 'location'
+        isAdult: { $gte: ["$age", 18] } // computed field: true if age >= 18
+      }
+    }
+  ]);
+
+  res.send(result);
+});
